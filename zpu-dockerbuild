@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# `./zpu-dockerbuild` - build ZPU firware and put umtrx_txrx_uhd.bin here.
+#
+# Requires Docker, and nothing else (no need to install 32-bit Linux, hooray!).
+# Container source: https://github.com/shamrin/zpugcc-docker.
+
+set -e
+
+docker build --rm .
+zpu_build_image=$(docker images -q --no-trunc | head -n 1)
+docker cp $(docker run -d $zpu_build_image true):/root/zpu/build/umtrx/umtrx_txrx_uhd.bin .
