@@ -1,5 +1,3 @@
-etc/security/limits.d
-etc/sysctl.d
 usr/bin
 usr/include/uhd
 usr/lib

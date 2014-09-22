@@ -13,8 +13,6 @@ override_dh_auto_test:
 	- if [ $(DEB_BUILD_ARCH) != powerpc ]; then dh_auto_test; fi
 
 override_dh_auto_install:
-	cp debian/uhd-host.limits debian/uhd-host/etc/security/limits.d/uhd.conf
-	cp debian/uhd-host.sysctl debian/uhd-host/etc/sysctl.d/uhd-usrp2.conf
 	dh_auto_install
 	- rm -f debian/tmp/usr/share/doc/uhd/doxygen/html/jquery.js
 	ln -s /usr/share/javascript/jquery/jquery.js debian/tmp/usr/share/doc/uhd/doxygen/html/jquery.js
